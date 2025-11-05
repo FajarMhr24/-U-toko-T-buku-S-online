@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Index (Login) - Toko Buku</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo.png">
+  <!-- Wajib: urutan data.js lalu script.js -->
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  
+</head>
+<body>
+  <div class="card">
+  <div class="skeleton skeleton-title"></div>
+  <div class="skeleton skeleton-text"></div>
+  <div class="skeleton skeleton-text"></div>
+</div>
+
+  <header class="topbar"><div class="brand"><img src="assets/P.jpg" alt=""><strong>Toko Buku</strong></div></header>
+
+  <div class="container">
+    <div class="card" style="max-width:520px;margin:40px auto;">
+      <h2>Masuk</h2>
+      <p><small class="helper">Demo: <b>admin@example.com</b> / <b>admin123</b></small></p>
+
+      <!-- Penting: id="loginForm" -->
+      <form id="loginForm" class="grid">
+        <div><label>Email</label><input id="email" type="email" required></div>
+        <div><label>Password</label><input id="password" type="password" required></div>
+        <div>
+          <button class="btn" type="submit">Login</button>
+          <button class="btn outline" type="button" onclick="openModal('#modalForgot')">Lupa Password</button>
+          <button class="btn secondary" type="button" onclick="openModal('#modalRegister')">Daftar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Lupa Password -->
+  <div class="modal" id="modalForgot">
+    <div class="dialog"><h3>Lupa Password</h3>
+      <form id="forgotForm">
+        <label>Email</label><input id="forgotEmail" type="email" required>
+        <div style="margin-top:12px">
+          <button class="btn" type="submit">Kirim Link Reset</button>
+          <button class="btn outline" type="button" onclick="closeModal('#modalForgot')">Tutup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Daftar -->
+  <div class="modal" id="modalRegister">
+    <div class="dialog"><h3>Daftar Akun</h3>
+      <form id="registerForm" class="grid">
+        <div><label>Nama</label><input id="regName" required></div>
+        <div><label>Email</label><input id="regEmail" type="email" required></div>
+        <div><label>Password</label><input id="regPassword" type="password" required></div>
+        <div>
+          <button class="btn" type="submit">Daftar</button>
+          <button class="btn outline" type="button" onclick="closeModal('#modalRegister')">Batal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
