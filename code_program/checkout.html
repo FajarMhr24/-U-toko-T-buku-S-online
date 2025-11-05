@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chackout - Toko Buku</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="assets/P.jpg" alt=""><strong>Toko Buku</strong></div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="stok.html">Stok</a>
+      <a href="chackout.html">Chackout</a>
+      <a href="tracking.html">Tracking</a>
+      <a href="#" onclick="signOut()">Keluar</a>
+    </nav>
+  </header>
+  <div class="container grid">
+    <div class="card">
+      <h2>Pilih Buku</h2>
+      <div id="katalog" class="grid"></div>
+    </div>
+    <div class="card">
+      <h2>Keranjang</h2>
+      <table class="table">
+        <thead><tr><th>Judul</th><th>Harga</th><th>Qty</th><th>Subtotal</th></tr></thead>
+        <tbody id="tbodyCart"></tbody>
+        <tfoot><tr><th colspan="3" style="text-align:right">Total</th><th id="total">Rp0</th></tr></tfoot>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Data Pemesan & Pembayaran</h2>
+      <form id="orderForm" class="grid grid-2">
+        <div><label>Nama</label><input id="nama" required></div>
+        <div><label>Alamat</label><input id="alamat" required></div>
+        <div><label>Metode Pembayaran</label>
+          <select id="metode"><option>Transfer Bank</option><option>VA</option><option>COD</option><option>E-Wallet</option></select>
+        </div>
+        <div><label>Bukti/No. Referensi</label><input id="bayar" placeholder="ID transaksi / referensi"></div>
+        <div style="align-self:end"><button class="btn" type="submit">Kirim Pesanan</button></div>
+      </form>
+      <small class="helper">Form memiliki validasi sederhana & alert.</small>
+    </div>
+    <div class="card" id="history">
+      <h2>History Transaksi</h2>
+      <div id="historyList"></div>
+    </div>
+  </div>
+</body></html>
