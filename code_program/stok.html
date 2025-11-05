@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stok/Katalog - Toko Buku</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="assets/P.jpg" alt=""><strong>Toko Buku</strong></div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="stok.html">Stok</a>
+      <a href="chackout.html">Chackout</a>
+      <a href="tracking.html">Tracking</a>
+      <a href="#" onclick="signOut()">Keluar</a>
+    </nav>
+  </header>
+
+  <div class="container grid">
+    <div class="card">
+      <h2>Informasi Stok / Katalog</h2>
+      <table class="table">
+        <thead>
+          <tr><th>ID</th><th>Judul</th><th>Stok</th><th>Harga</th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div id="debug" class="helper" style="margin-top:8px;color:#64748b"></div>
+    </div>
+
+    <div class="card">
+      <h3>Tambah Baris Stok (DOM)</h3>
+      <form id="formAdd" class="grid grid-2">
+        <div><label>ID</label><input id="id" required></div>
+        <div><label>Judul</label><input id="judul" required></div>
+        <div><label>Penulis</label><input id="penulis" required></div>
+        <div><label>Stok</label><input id="stok" type="number" min="0" value="0"></div>
+        <div><label>Harga</label><input id="harga" type="number" min="0" value="0"></div>
+        <div style="align-self:end"><button class="btn" type="submit">Tambah</button></div>
+      </form>
+      <small class="helper">Fitur ini menggunakan manipulasi DOM untuk menambahkan baris baru.</small>
+    </div>
+  </div>
+
+  <!-- WAJIB: data.js dulu, baru script.js. pakai defer + cache-buster -->
+  <script defer src="js/data.js?v=2"></script>
+  <script defer src="js/script.js?v=2"></script>
+
+  <!-- DIAGNOSA: tampilkan status pemuatan data.js -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // delay sedikit agar defer script.js selesai
+      setTimeout(() => {
+        const dbg = document.getElementById('debug');
+        const hasUsers = Array.isArray(window.users);
+        const hasKatalog = Array.isArray(window.dataKatalogBuku);
+        const len = hasKatalog ? window.dataKatalogBuku.length : 0;
+        console.log('[DEBUG stok] users?', hasUsers, '| dataKatalogBuku?', hasKatalog, 'len:', len);
+        if (!hasKatalog) {
+          dbg.innerHTML = "⚠️ <b>dataKatalogBuku belum terdeteksi.</b> Periksa: <code>js/data.js</code> ada & tidak error, dan urutannya sebelum <code>js/script.js</code>.";
+          alert("data.js belum terbaca atau error. Buka Console (F12) → cek error merah/404 untuk js/data.js");
+        } else if (len === 0) {
+          dbg.textContent = "⚠️ dataKatalogBuku terdeteksi, tapi kosong (length = 0).";
+        } else {
+          dbg.textContent = "✅ data.js terdeteksi. Jumlah item: " + len;
+        }
+      }, 100);
+    });
+  </script>
+</body>
+</html>
