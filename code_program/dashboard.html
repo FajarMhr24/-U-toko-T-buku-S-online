@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Toko Buku</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="assets/P.jpg" alt=""><strong>Toko Buku</strong></div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="stok.html">Stok</a>
+      <a href="chackout.html">Chackout</a>
+      <a href="tracking.html">Tracking</a>
+      <a href="#" onclick="signOut()">Keluar</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h2 id="hello">...</h2>
+      <p>Selamat datang di panel utama.</p>
+      <nav class="menu">
+        <a href="stok.html"><div class="card">Informasi Stok / Katalog</div></a>
+        <a href="chackout.html"><div class="card">Pemesanan (Chackout)</div></a>
+        <a href="tracking.html"><div class="card">Tracking Pengiriman</div></a>
+        <a href="chackout.html#history"><div class="card">History Transaksi</div></a>
+      </nav>
+    </div>
+    <footer>© 2025 Toko Buku. Demo UTS.</footer>
+  </div>
+  
